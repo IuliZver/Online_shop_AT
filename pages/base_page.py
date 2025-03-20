@@ -5,6 +5,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 
 class BasePage:
+        
+    def __init__(self, browser, url, timeout=10):
+        self.browser = browser
+        self.url = url
+        self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
@@ -46,6 +51,10 @@ class BasePage:
         #return LoginPage(browser=self.browser, url=self.browser.current_url)
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
+    
+    def go_to_basket_page(self):
+        basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        basket_button.click()
         
     def is_element_present(self, how, what):
         try:
@@ -53,8 +62,4 @@ class BasePage:
         except NoSuchElementException:
             return False
         return True
-        
-    def __init__(self, browser, url, timeout=10):
-        self.browser = browser
-        self.url = url
-        self.browser.implicitly_wait(timeout)
+
