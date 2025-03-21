@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from .locators import BasePageLocators
 
 class BasePage:
-        
+    
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -20,8 +20,6 @@ class BasePage:
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
         alert.accept()
-
-        # Переместите этот блок в метод, чтобы использовать self
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
@@ -48,13 +46,16 @@ class BasePage:
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
-        #return LoginPage(browser=self.browser, url=self.browser.current_url)
+        
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
     
     def go_to_basket_page(self):
         basket_button = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
-        basket_button.click()
+        basket_button.click
+        
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented, probably unauthorised user"
         
     def is_element_present(self, how, what):
         try:
