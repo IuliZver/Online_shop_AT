@@ -18,6 +18,8 @@ class ProductPageLocators():
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
     BASKET_TOTAL = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
     EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner p")
+    EMPTY_BASKET_MESSAGE = (By.ID, "content_inner")
+    EMPTY_BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")

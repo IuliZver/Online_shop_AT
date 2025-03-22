@@ -7,10 +7,10 @@ from .locators import ProductPageLocators
 
 class BasketPage(BasePage):
     def should_be_empty_basket(self):
-        assert self.is_not_element_present(By.CSS_SELECTOR, ".basket-items"), "Basket is not empty"
+        assert self.is_not_element_present(*ProductPageLocators.EMPTY_BASKET_ITEMS), "Basket is not empty"
 
     def should_be_empty_basket_text(self):
-        assert self.is_element_present(By.ID, "content_inner"), "Element with id 'content_inner' is not present"
+        assert self.is_element_present(*ProductPageLocators.EMPTY_BASKET_MESSAGE), "Element with message 'Your basket is empty.' is not present"
         empty_basket_text = self.browser.find_element(*ProductPageLocators.EMPTY_BASKET_TEXT).text
         assert "Your basket is empty" in empty_basket_text, f"Expected 'Your basket is empty' but got '{empty_basket_text}'"
         
