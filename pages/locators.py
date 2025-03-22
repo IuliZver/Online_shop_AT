@@ -17,9 +17,10 @@ class ProductPageLocators():
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".price_color")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".alert-success")
     BASKET_TOTAL = (By.CSS_SELECTOR, ".alert-info .alertinner strong")
+    EMPTY_BASKET_TEXT = (By.CSS_SELECTOR, "#content_inner p")
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET_BUTTON = (By.CSS_SELECTOR, ".basket-mini a.btn-default")
+    BASKET_LINK = (By.CSS_SELECTOR, ".basket-mini a.btn-default")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
